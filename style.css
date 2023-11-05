@@ -1,0 +1,118 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.header-ind
+{
+  
+    height: 100px;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 0 15px#0a022efc;
+}
+.header-ind h1
+{
+   font-size: 70px;
+   font-weight: 700;
+}
+
+.day-night
+{
+   position: relative;
+   height: 500px;
+   width: 500px;
+   transform: rotate(-360);
+   animation: rotate 5s infinite linear ;
+   border-radius: 50%;
+   border: 2px solid black;
+   background-color: rgb(255, 255, 255);
+
+   
+}
+
+@keyframes rotate {
+0%
+{
+    transform: rotate(360deg);
+    background-color: rgb(0, 217, 255);
+    
+}
+100%
+{
+    background-color: rgba(0, 0, 255, 0.784);
+}
+}
+
+.cont-day-night
+{
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px#0a022efc;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+.day-night img
+{
+   height: 200px;
+   width: 200px;
+   margin: auto;
+   
+}
+
+.imgBodies .moon
+{
+    position: absolute ;
+    top: 83%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.imgBodies .sun
+{
+    position: absolute ;
+    top: 23%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.sun{
+    border-radius: 50%;
+box-shadow: 4px 4px rgba(0,0, 0, 0.7) ;
+}
+
+.ground
+{
+    width: 500px;
+    height: 500px;
+    top: -500px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 50%;
+    border: 16px solid rgb(24, 23, 23);
+}
+.ground-img
+{
+   transform: translate(-30%,20%);
+}
+.footer-index
+{
+    height: 200px;
+}
+
+.weather-show
+{
+    height: 500px;
+    width: 500px;
+    border: 8px solid black;
+    border-radius: 8px;
+    float: right;
+    top: 10%;
+    margin-right: 10%;
+}
+
+.weather-icon
+{
+    font-size: 40px;
+}

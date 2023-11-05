@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <title>Weather vane</title>
+</head>
+<body>
+    <header><div class="header-ind"><center><h1>Weather-Vane</h1> <div class="search"><input type="text" name="search" id="search" placeholder="Enter city name" spellcheck="false"><button id="search-btn"><i class='bx bx-search-alt'></i></button></div></center></div></header>
+    <main>
+        <div class="weather-show">
+           <center><div> <i class='bx bx-circle weather-icon'></i></div></center>
+            <center> <h1 class="temp">22°C</h1></center>
+            <center><p class="desc">Light rain</p></center>
+            <center> <h2 class="city">Delhi</h2></center>
+            <div class="details">
+                <div class="col">
+                 <i class='bx bx-water' ></i>
+                 <div>
+                    <p class="humidity">50%</p>
+                    <p>humidity</p>
+                </div>
+               </div>
+               <div class="col">
+                <i class='bx bx-wind' ></i>
+                <div>
+                   <p class="wind">15 km/h</p>
+                   <p>Wind speed</p>
+               </div>
+              </div>
+            </div>
+        </div>
+        <div class="cont-day-night">
+            <div class="day-night">
+                <div class="imgBodies"> <img src="moon-icon-23626.png" alt="" class="moon"></div>
+                <div class="imgBodies"> <img src="sun-48189 (1).png" alt="" class="sun"></div>
+            </div>
+            <div class="ground"><img src="clipart1075637.png" alt="" class="ground-img"></div>
+        </div>
+        
+    </main>
+    <footer><div class="footer-index">
+
+    </div></footer>
+    <script src="script.js"></script>
+    <script>
+        searchBtn.addEventListener("click",()=>{
+            checkWeather(inputBox.value);
+})
+        
+    </script>
+</body>
+</html>
