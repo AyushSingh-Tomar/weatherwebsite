@@ -16,21 +16,21 @@
     <main>
         <div class="weather-show">
            <center><div> <i class='bx bx-circle bx-cloud bx-sun bx-cloud-light-rain bx-cloud-drizzle bxl-tailwind-css weather-icon'></i></div></center>
-            <center> <h1 class="temp">22°C</h1></center>
-            <center><p class="desc">Light rain</p></center>
-            <center> <h2 class="city">Delhi</h2></center>
+            <center> <h1 class="temp">weather in °C</h1></center>
+            <center><p class="desc">Description</p></center>
+            <center> <h2 class="city">City</h2></center>
             <div class="details">
                 <div class="col">
                  <i class='bx bx-water' ></i>
                  <div>
-                    <p class="humidity">50%</p>
+                    <p class="humidity">in %</p>
                     <p>humidity</p>
                 </div>
                </div>
                <div class="col">
                 <i class='bx bx-wind' ></i>
                 <div>
-                   <p class="wind">15 km/h</p>
+                   <p class="wind">in  km/h</p>
                    <p>Wind speed</p>
                </div>
               </div>
@@ -49,11 +49,5 @@
 
     </div></footer>
     <script src="script.js"></script>
-    <script>
-        searchBtn.addEventListener("click",()=>{
-            checkWeather(inputBox.value);
-})
-        
-    </script>
 </body>
 </html>
