@@ -13,7 +13,93 @@ async function successGetLocation(position)
 }
 function failedGetLocation()
 {
-   alert("Couldn't get location");
+  const a = prompt("Couldn't get location automatically , you can manually enter it");
+ console.log(a);
+  async function checkWeather(city)
+{
+    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+    var data = await response.json();
+
+    console.log(data);
+
+    document.querySelector('.city').innerHTML = data.name;
+    document.querySelector('.temp').innerHTML = Math.round(data.main.temp ) + "°C";
+    document.querySelector('.humidity').innerHTML = data.main.humidity + "%";
+    document.querySelector('.wind').innerHTML = data.wind.speed + " km/h";
+    document.querySelector('.desc').innerHTML = data.weather[0].description;
+
+    if(data.weather[0].main =="Clouds")
+    {
+          weatherImg.classList.remove("bx-cloud")
+          weatherImg.classList.remove("bx-sun")
+          weatherImg.classList.remove("bx-cloud-light-rain")
+          weatherImg.classList.remove("bx-cloud-drizzle")
+          weatherImg.classList.remove("bx-droplet")
+          weatherImg.classList.remove("bx-circle")
+          weatherImg.classList.add("bx-cloud")
+          
+    }
+    if(data.weather[0].main =="Clear")
+    {
+      weatherImg.classList.remove("bx-cloud")
+      weatherImg.classList.remove("bx-sun")
+      weatherImg.classList.remove("bx-cloud-light-rain")
+      weatherImg.classList.remove("bx-cloud-drizzle")
+      weatherImg.classList.remove("bx-droplet")
+      weatherImg.classList.remove("bx-circle")
+      weatherImg.classList.add("bx-sun")
+
+    }
+    if(data.weather[0].main =="Rain")
+    {
+      weatherImg.classList.remove("bx-cloud")
+      weatherImg.classList.remove("bx-sun")
+      weatherImg.classList.remove("bx-cloud-light-rain")
+      weatherImg.classList.remove("bx-cloud-drizzle")
+      weatherImg.classList.remove("bx-droplet")
+      weatherImg.classList.remove("bx-circle")
+      weatherImg.classList.add("bx-cloud-light-rain")
+
+    }
+    if(data.weather[0].main =="Drizzle")
+    {
+      weatherImg.classList.remove("bx-cloud")
+      weatherImg.classList.remove("bx-sun")
+      weatherImg.classList.remove("bx-cloud-light-rain")
+      weatherImg.classList.remove("bx-cloud-drizzle")
+      weatherImg.classList.remove("bx-droplet")
+      weatherImg.classList.remove("bx-circle")
+       weatherImg.classList.add("bx-cloud-drizzle")
+    }
+    if(data.weather[0].main =="Mist")
+    {
+      weatherImg.classList.remove("bx-cloud")
+      weatherImg.classList.remove("bx-sun")
+      weatherImg.classList.remove("bx-cloud-light-rain")
+      weatherImg.classList.remove("bx-cloud-drizzle")
+      weatherImg.classList.remove("bx-droplet")
+      weatherImg.classList.remove("bx-circle")
+      weatherImg.classList.add("bx-droplet")
+    }
+    if(data.weather[0].main =="Smoke")
+    {
+      weatherImg.classList.remove("bx-cloud")
+      weatherImg.classList.remove("bx-sun")
+      weatherImg.classList.remove("bx-cloud-light-rain")
+      weatherImg.classList.remove("bx-cloud-drizzle")
+      weatherImg.classList.remove("bx-droplet")
+      weatherImg.classList.remove("bx-circle")
+      weatherImg.classList.add("bx-circle")
+
+    }
+}
+if(a!= null)
+{
+  checkWeather(a);
+}
+  
+
+
 }
 
 addEventListener('load',async ()=>{
@@ -39,7 +125,7 @@ async function getWeather(lat,lon)
           weatherImg.classList.remove("bx-sun")
           weatherImg.classList.remove("bx-cloud-light-rain")
           weatherImg.classList.remove("bx-cloud-drizzle")
-          weatherImg.classList.remove("bxl-tailwind-css")
+          weatherImg.classList.remove("bx-droplet")
           weatherImg.classList.remove("bx-circle")
           weatherImg.classList.add("bx-cloud")
           
@@ -50,7 +136,7 @@ async function getWeather(lat,lon)
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
       weatherImg.classList.remove("bx-cloud-drizzle")
-      weatherImg.classList.remove("bxl-tailwind-css")
+      weatherImg.classList.remove("bx-droplet")
       weatherImg.classList.remove("bx-circle")
       weatherImg.classList.add("bx-sun")
 
@@ -61,7 +147,7 @@ async function getWeather(lat,lon)
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
       weatherImg.classList.remove("bx-cloud-drizzle")
-      weatherImg.classList.remove("bxl-tailwind-css")
+      weatherImg.classList.remove("bx-droplet")
       weatherImg.classList.remove("bx-circle")
       weatherImg.classList.add("bx-cloud-light-rain")
 
@@ -71,10 +157,10 @@ async function getWeather(lat,lon)
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
-      weatherImg.classList.remove("bx bx-cloud-drizzle")
-      weatherImg.classList.remove("bxl-tailwind-css")
+      weatherImg.classList.remove("bx-cloud-drizzle")
+      weatherImg.classList.remove("bx-droplet")
       weatherImg.classList.remove("bx-circle")
-       weatherImg.classList.add("bx bx-cloud-drizzle")
+       weatherImg.classList.add("bx-cloud-drizzle")
     }
     if(data.weather[0].main =="Mist")
     {
@@ -82,9 +168,9 @@ async function getWeather(lat,lon)
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
       weatherImg.classList.remove("bx-cloud-drizzle")
-      weatherImg.classList.remove("bx bxl-tailwind-css")
+      weatherImg.classList.remove("bx-droplet")
       weatherImg.classList.remove("bx-circle")
-      weatherImg.classList.add("bx bxl-tailwind-css")
+      weatherImg.classList.add("bx-droplet")
     }
     if(data.weather[0].main =="Smoke")
     {
@@ -92,7 +178,7 @@ async function getWeather(lat,lon)
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
       weatherImg.classList.remove("bx-cloud-drizzle")
-      weatherImg.classList.remove("bxl-tailwind-css")
+      weatherImg.classList.remove("bx-droplet")
       weatherImg.classList.remove("bx-circle")
       weatherImg.classList.add("bx-circle")
 
@@ -120,7 +206,7 @@ async function checkWeather(city)
           weatherImg.classList.remove("bx-sun")
           weatherImg.classList.remove("bx-cloud-light-rain")
           weatherImg.classList.remove("bx-cloud-drizzle")
-          weatherImg.classList.remove("bxl-tailwind-css")
+          weatherImg.classList.remove("bx-droplet")
           weatherImg.classList.remove("bx-circle")
           weatherImg.classList.add("bx-cloud")
           
@@ -131,7 +217,7 @@ async function checkWeather(city)
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
       weatherImg.classList.remove("bx-cloud-drizzle")
-      weatherImg.classList.remove("bxl-tailwind-css")
+      weatherImg.classList.remove("bx-droplet")
       weatherImg.classList.remove("bx-circle")
       weatherImg.classList.add("bx-sun")
 
@@ -142,7 +228,7 @@ async function checkWeather(city)
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
       weatherImg.classList.remove("bx-cloud-drizzle")
-      weatherImg.classList.remove("bxl-tailwind-css")
+      weatherImg.classList.remove("bx-droplet")
       weatherImg.classList.remove("bx-circle")
       weatherImg.classList.add("bx-cloud-light-rain")
 
@@ -152,10 +238,10 @@ async function checkWeather(city)
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
-      weatherImg.classList.remove("bx bx-cloud-drizzle")
-      weatherImg.classList.remove("bxl-tailwind-css")
+      weatherImg.classList.remove("bx-cloud-drizzle")
+      weatherImg.classList.remove("bx-droplet")
       weatherImg.classList.remove("bx-circle")
-       weatherImg.classList.add("bx bx-cloud-drizzle")
+       weatherImg.classList.add("bx-cloud-drizzle")
     }
     if(data.weather[0].main =="Mist")
     {
@@ -163,9 +249,9 @@ async function checkWeather(city)
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
       weatherImg.classList.remove("bx-cloud-drizzle")
-      weatherImg.classList.remove("bx bxl-tailwind-css")
+      weatherImg.classList.remove("bx-droplet")
       weatherImg.classList.remove("bx-circle")
-      weatherImg.classList.add("bx bxl-tailwind-css")
+      weatherImg.classList.add("bx-droplet")
     }
     if(data.weather[0].main =="Smoke")
     {
@@ -173,7 +259,7 @@ async function checkWeather(city)
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
       weatherImg.classList.remove("bx-cloud-drizzle")
-      weatherImg.classList.remove("bxl-tailwind-css")
+      weatherImg.classList.remove("bx-droplet")
       weatherImg.classList.remove("bx-circle")
       weatherImg.classList.add("bx-circle")
 
@@ -182,3 +268,4 @@ async function checkWeather(city)
 
 searchBtn.addEventListener("click",()=>{
   checkWeather(inputBox.value);})
+

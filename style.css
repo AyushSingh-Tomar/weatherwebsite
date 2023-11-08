@@ -22,8 +22,8 @@
 .day-night
 {
    position: relative;
-   height: 500px;
-   width: 500px;
+   height: 300px;
+   width: 300px;
    transform: rotate(-360);
    animation: rotate 5s infinite linear ;
    border-radius: 50%;
@@ -48,8 +48,8 @@
 
 .cont-day-night
 {
-    height: 500px;
-    width: 500px;
+    height: 300px;
+    width: 300px;
     border-radius: 50%;
     box-shadow: 0 0 15px#0a022efc;
     margin-left: 5%;
@@ -57,8 +57,8 @@
 }
 .day-night img
 {
-   height: 200px;
-   width: 200px;
+   height: 100px;
+   width: 100px;
    margin: auto;
    
 }
@@ -84,17 +84,17 @@ box-shadow: 4px 4px rgba(0,0, 0, 0.7) ;
 
 .ground
 {
-    width: 500px;
-    height: 500px;
-    top: -500px;
+    width: 300px;
+    height: 300px;
+    top: -300px;
     overflow: hidden;
     position: relative;
     border-radius: 50%;
     border: 16px solid rgb(24, 23, 23);
 }
-.ground-img
-{
-   transform: translate(-30%,20%);
+.ground-img {
+    transform: translate(-79%,-23%);
+    scale: .5;
 }
 .footer-index
 {
@@ -103,8 +103,8 @@ box-shadow: 4px 4px rgba(0,0, 0, 0.7) ;
 
 .weather-show
 {
-    height: 500px;
-    width: 500px;
+   
+    width: 60%;
     border: 8px solid black;
     border-radius: 8px;
     float: right;
@@ -115,4 +115,13 @@ box-shadow: 4px 4px rgba(0,0, 0, 0.7) ;
 .weather-icon
 {
     font-size: 40px;
+}
+
+@media screen and (max-width :514px)
+{
+    .header-ind h1
+{
+   font-size: 40px;
+  
+}
 }
