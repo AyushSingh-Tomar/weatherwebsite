@@ -5,6 +5,7 @@ const apiUrl1 = "https://api.openweathermap.org/data/2.5/weather?lat=57&lon=-2.1
 const inputBox = document.getElementById('search')
 const searchBtn = document.getElementById('search-btn')
 const weatherImg = document.querySelector('.weather-icon')
+const Body = document.querySelector('body')
 
 async function successGetLocation(position)
 {
@@ -21,15 +22,30 @@ function failedGetLocation()
     var data = await response.json();
 
     console.log(data);
-
     document.querySelector('.city').innerHTML = data.name;
     document.querySelector('.temp').innerHTML = Math.round(data.main.temp ) + "°C";
     document.querySelector('.humidity').innerHTML = data.main.humidity + "%";
     document.querySelector('.wind').innerHTML = data.wind.speed + " km/h";
     document.querySelector('.desc').innerHTML = data.weather[0].description;
-
+    document.querySelector('.pressure').innerHTML = data.main.pressure;
+    document.querySelector('.longitude').innerHTML = data.coord.lon;
+    document.querySelector('.latitude').innerHTML = data.coord.lat;
+    document.querySelector('.visibility').innerHTML = data.visibility ;
+    document.querySelector('.time-zone').innerHTML = data.timezone;
+    document.querySelector('.min-temp').innerHTML =Math.round(data.main.temp_min ) + "°C";
+    document.querySelector('.max-temp').innerHTML = Math.round(data.main.temp_max ) + "°C";
+    document.querySelector('.feels-like').innerHTML = "feels like"+ data.main.feels_like + "°C" ;
+   
     if(data.weather[0].main =="Clouds")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('cloud')
           weatherImg.classList.remove("bx-cloud")
           weatherImg.classList.remove("bx-sun")
           weatherImg.classList.remove("bx-cloud-light-rain")
@@ -41,6 +57,14 @@ function failedGetLocation()
     }
     if(data.weather[0].main =="Clear")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('sun')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
@@ -52,6 +76,14 @@ function failedGetLocation()
     }
     if(data.weather[0].main =="Rain")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('rain')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
@@ -63,6 +95,14 @@ function failedGetLocation()
     }
     if(data.weather[0].main =="Drizzle")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('drizzle')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
@@ -73,6 +113,14 @@ function failedGetLocation()
     }
     if(data.weather[0].main =="Mist")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('mist')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
@@ -83,6 +131,14 @@ function failedGetLocation()
     }
     if(data.weather[0].main =="Smoke")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('smoke')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
@@ -118,9 +174,25 @@ async function getWeather(lat,lon)
     document.querySelector('.humidity').innerHTML = data.main.humidity + "%";
     document.querySelector('.wind').innerHTML = data.wind.speed + " km/h";
     document.querySelector('.desc').innerHTML = data.weather[0].description;
-
+    document.querySelector('.pressure').innerHTML = data.main.pressure;
+    document.querySelector('.longitude').innerHTML = data.coord.lon;
+    document.querySelector('.latitude').innerHTML = data.coord.lat;
+    document.querySelector('.visibility').innerHTML = data.visibility ;
+    document.querySelector('.time-zone').innerHTML = data.timezone;
+    document.querySelector('.min-temp').innerHTML =Math.round(data.main.temp_min ) + "°C";
+    document.querySelector('.max-temp').innerHTML = Math.round(data.main.temp_max ) + "°C";
+    document.querySelector('.feels-like').innerHTML = "feels like"+ data.main.feels_like + "°C" ;
+  
     if(data.weather[0].main =="Clouds")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('cloud')
           weatherImg.classList.remove("bx-cloud")
           weatherImg.classList.remove("bx-sun")
           weatherImg.classList.remove("bx-cloud-light-rain")
@@ -132,6 +204,14 @@ async function getWeather(lat,lon)
     }
     if(data.weather[0].main =="Clear")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('sun')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
@@ -143,6 +223,14 @@ async function getWeather(lat,lon)
     }
     if(data.weather[0].main =="Rain")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('rain')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
@@ -154,6 +242,14 @@ async function getWeather(lat,lon)
     }
     if(data.weather[0].main =="Drizzle")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('drizzle')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
@@ -164,6 +260,14 @@ async function getWeather(lat,lon)
     }
     if(data.weather[0].main =="Mist")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('mist')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
@@ -174,6 +278,14 @@ async function getWeather(lat,lon)
     }
     if(data.weather[0].main =="Smoke")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('smoke')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
@@ -199,9 +311,25 @@ async function checkWeather(city)
     document.querySelector('.humidity').innerHTML = data.main.humidity + "%";
     document.querySelector('.wind').innerHTML = data.wind.speed + " km/h";
     document.querySelector('.desc').innerHTML = data.weather[0].description;
+    document.querySelector('.pressure').innerHTML = data.main.pressure;
+    document.querySelector('.longitude').innerHTML = data.coord.lon;
+    document.querySelector('.latitude').innerHTML = data.coord.lat;
+    document.querySelector('.visibility').innerHTML = data.visibility ;
+    document.querySelector('.time-zone').innerHTML = data.timezone;
+    document.querySelector('.min-temp').innerHTML =Math.round(data.main.temp_min ) + "°C";
+    document.querySelector('.max-temp').innerHTML = Math.round(data.main.temp_max ) + "°C";
+    document.querySelector('.feels-like').innerHTML = "feels like"+ data.main.feels_like + "°C" ;
 
     if(data.weather[0].main =="Clouds")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('cloud')
           weatherImg.classList.remove("bx-cloud")
           weatherImg.classList.remove("bx-sun")
           weatherImg.classList.remove("bx-cloud-light-rain")
@@ -213,6 +341,14 @@ async function checkWeather(city)
     }
     if(data.weather[0].main =="Clear")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('sun')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
@@ -224,6 +360,14 @@ async function checkWeather(city)
     }
     if(data.weather[0].main =="Rain")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('rain')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
@@ -235,6 +379,14 @@ async function checkWeather(city)
     }
     if(data.weather[0].main =="Drizzle")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('drizzle')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
@@ -245,6 +397,14 @@ async function checkWeather(city)
     }
     if(data.weather[0].main =="Mist")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('mist')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
@@ -255,6 +415,14 @@ async function checkWeather(city)
     }
     if(data.weather[0].main =="Smoke")
     {
+      Body.classList.remove('cloud')
+      Body.classList.remove('smoke')
+      Body.classList.remove('sun')
+      Body.classList.remove('rain')
+      Body.classList.remove('drizzle')
+      Body.classList.remove('mist')
+      Body.classList.remove('smoke')
+      Body.classList.add('smoke')
       weatherImg.classList.remove("bx-cloud")
       weatherImg.classList.remove("bx-sun")
       weatherImg.classList.remove("bx-cloud-light-rain")
